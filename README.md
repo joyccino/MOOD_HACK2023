@@ -23,7 +23,7 @@ Follow these steps to set up the project:
 2. Navigate to the project directory:
 
    ```bash
-   cd your-mood-light
+   cd mood_detector_deepface_to_db.py
    ```
 
 3. Install the required dependencies using `pip3` by running:

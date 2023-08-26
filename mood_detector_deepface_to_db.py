@@ -2,6 +2,11 @@ import cv2 as cv
 from deepface import DeepFace
 import math
 
+from pymongo import MongoClient
+client = MongoClient('mongodb+srv://joy:4hackathon@clusterforhackathon.5s924x7.mongodb.net/?retryWrites=true&w=majority')
+
+db = client.emotion_storage
+
 cap = cv.VideoCapture(0)
 
 space_pressed = False
@@ -22,6 +27,9 @@ while True:
 
         print("Dominant Emotion:", dominant_emotion)
         print("Probability:", dominant_emotion_probability)
+
+        doc = {'emotion':dominant_emotion,'probability':dominant_emotion_probability} # 데이터 하나
+        db.mood_collection.insert_one(doc)
 
         cv.imshow('frame', frame)
         key = cv.waitKey(1)

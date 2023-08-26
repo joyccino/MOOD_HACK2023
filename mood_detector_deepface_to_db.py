@@ -1,8 +1,12 @@
 import cv2 as cv
 from deepface import DeepFace
 import math
-
+import uuid
+import datetime as dt
 from pymongo import MongoClient
+
+random_uuid = str(uuid.uuid4()) # this be used as session id
+
 client = MongoClient('mongodb+srv://joy:4hackathon@clusterforhackathon.5s924x7.mongodb.net/?retryWrites=true&w=majority')
 
 db = client.emotion_storage
@@ -28,8 +32,8 @@ while True:
         print("Dominant Emotion:", dominant_emotion)
         print("Probability:", dominant_emotion_probability)
 
-        doc = {'emotion':dominant_emotion,'probability':dominant_emotion_probability} # 데이터 하나
-        db.mood_collection.insert_one(doc)
+        data = {'emotion':dominant_emotion,'probability':dominant_emotion_probability, 'sessionId': random_uuid, 'datetime': dt.datetime.today()}
+        db.mood_collection.insert_one(data)
 
         cv.imshow('frame', frame)
         key = cv.waitKey(1)
@@ -43,7 +47,6 @@ while True:
             cap.release()
             cv.destroyAllWindows()
             exit()
-
     except:
         continue
 

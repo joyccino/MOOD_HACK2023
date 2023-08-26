@@ -31,6 +31,16 @@ while True:
         print("Dominant Emotion:", dominant_emotion)
         print("Probability:", dominant_emotion_probability)
 
+        emotion_code = 0
+        
+        if (dominant_emotion == "happy") :
+            emotion_code = 1
+        elif (dominant_emotion == "sad" or "angry"):
+            emotion_code = 2
+        elif (dominant_emotion == "neutral") :
+            emotion_code = 0
+        
+
         if (dominant_emotion == "happy" and dominant_emotion_probability > 80) :
             cv.imwrite('mood-dashboard/static/image/capture_{0}.jpg'.format(random_uuid), frame)
 

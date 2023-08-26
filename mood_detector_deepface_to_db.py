@@ -19,7 +19,7 @@ esc_pressed = False
 while True:
     ret, frame = cap.read()
 
-    img_path = 'output/capture.jpg'
+    img_path = 'output/capture_{0}.jpg'.format(random_uuid)
     cv.imwrite(img_path, frame)
 
     try:
@@ -31,6 +31,9 @@ while True:
 
         print("Dominant Emotion:", dominant_emotion)
         print("Probability:", dominant_emotion_probability)
+
+        if (dominant_emotion == "happy" and dominant_emotion_probability > 80) :
+            cv.imwrite('output/capture_{0}.jpg'.format(random_uuid), frame)
 
         data = {'emotion':dominant_emotion,'probability':dominant_emotion_probability, 'sessionId': random_uuid, 'datetime': dt.datetime.today()}
         db.mood_collection.insert_one(data)

@@ -46,21 +46,6 @@ Follow these steps to set up the project:
 
    This script captures video from your camera, detects faces, extracts emotions using the 'deepface' library, and controls the mood light accordingly.
 
-## Configuration
-
-Before running the project, you need to configure the MongoDB connection. Open the `config.py` file and provide your MongoDB Cloud credentials:
-
-```python
-# config.py
-
-MONGO_URI = "your-mongodb-uri"
-```
-
-Replace `"your-mongodb-uri"` with your actual MongoDB Cloud URI.
-
-## Contributing
-
-If you'd like to contribute to this project, feel free to fork the repository and create a pull request with your changes. We welcome contributions!
 
 ## License
 

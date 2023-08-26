@@ -7,7 +7,7 @@ from pymongo import MongoClient
 
 random_uuid = str(uuid.uuid4()) # this be used as session id
 
-client = MongoClient('mongodb+srv://joy:4hackathon@clusterforhackathon.5s924x7.mongodb.net/?retryWrites=true&w=majority')
+client = MongoClient('mongodb+srv://joy:4hackathon@clusterforhackathon.5s924x7.mongodb.net/?retryWrites=true&w=majority') # db conn
 
 db = client.emotion_storage
 

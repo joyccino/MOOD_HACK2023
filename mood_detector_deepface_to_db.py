@@ -32,7 +32,7 @@ while True:
         print("Probability:", dominant_emotion_probability)
 
         if (dominant_emotion == "happy" and dominant_emotion_probability > 80) :
-            cv.imwrite('output/capture_{0}.jpg'.format(random_uuid), frame)
+            cv.imwrite('mood-dashboard/static/image/capture_{0}.jpg'.format(random_uuid), frame)
 
         data = {'emotion':dominant_emotion,'probability':dominant_emotion_probability, 'sessionId': random_uuid, 'datetime': dt.datetime.today()}
         db.mood_collection.insert_one(data)

@@ -1,35 +1,43 @@
-import cv2
-import numpy as np 
+import cv2 as cv
+from deepface import DeepFace
+import math
 
-# button dimensions (y1,y2,x1,x2)
-button = [20,60,50,250]
+cap = cv.VideoCapture(0)
 
-# function that handles the mousclicks
-def process_click(event, x, y,flags, params):
-    # check if the click is within the dimensions of the button
-    if event == cv2.EVENT_LBUTTONDOWN:
-        if y > button[0] and y < button[1] and x > button[2] and x < button[3]:   
-            print('Clicked on Button!')
+space_pressed = False
+esc_pressed = False
 
-# function that handles the trackbar
-def startCapture(val):
-    # check if the value of the slider 
-    if val == 1:
-        print('Capture started!')
-    else:
-        print('Capture stopped!')            
+while True:
+    ret, frame = cap.read()
 
-# create a window and attach a mousecallback and a trackbar
-cv2.namedWindow('Control')
-cv2.setMouseCallback('Control',process_click)
-cv2.createTrackbar("Capture", 'Control', 0,1, startCapture)
+    img_path = 'output/capture.jpg'
+    cv.imwrite(img_path, frame)
 
-# create button image
-control_image = np.zeros((80,300), np.uint8)
-control_image[button[0]:button[1],button[2]:button[3]] = 180
-cv2.putText(control_image, 'Button',(100,50),cv2.FONT_HERSHEY_PLAIN, 2,(0),3)
+    try:
+        predictions = DeepFace.analyze(img_path, actions=['emotion'])[0]
+        print(predictions)
+        dominant_emotion = predictions['dominant_emotion']
+        dominant_emotion_probability = predictions['emotion'][dominant_emotion]
+        dominant_emotion_probability = math.ceil(dominant_emotion_probability)
 
-#show 'control panel'
-cv2.imshow('Control', control_image)
-cv2.waitKey(0)
-cv2.destroyAllWindows()
+        print("Dominant Emotion:", dominant_emotion)
+        print("Probability:", dominant_emotion_probability)
+
+        cv.imshow('frame', frame)
+        key = cv.waitKey(1)
+
+        if key == ord(' '):
+            space_pressed = True
+        if key == 27:  # 27은 Esc 키의 ASCII 코드 값
+            esc_pressed = True
+
+        if space_pressed and esc_pressed:
+            cap.release()
+            cv.destroyAllWindows()
+            exit()
+
+    except:
+        continue
+
+cap.release()
+cv.destroyAllWindows()

@@ -54,8 +54,8 @@ This project is licensed under the [MIT License](LICENSE).
 ---
 
 ## Reference Papers
-https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6379348/
-[https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6379348/](https://pubmed.ncbi.nlm.nih.gov/35285408/)
-https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7855717/
+[Adaptive Effects of Seeing Green Environment on Psychophysiological Parameters When Walking or Running (2019)](ncbi.nlm.nih.gov/pmc/articles/PMC6379348/)
+[How and why could smiling influence physical health? A conceptual review (2022)]([https://pubmed.ncbi.nlm.nih.gov/35285408/](https://pubmed.ncbi.nlm.nih.gov/35285408/))
+[Foliage colors improve relaxation and emotional status of university students from different countries (2021)]([https://pubmed.ncbi.nlm.nih.gov/35285408/](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7855717/))
 
 We hope you enjoy working on the Mood Light Hackathon project! If you have any questions or run into issues, feel free to open an issue on this repository. Happy hacking!

@@ -53,4 +53,9 @@ This project is licensed under the [MIT License](LICENSE).
 
 ---
 
+## Reference Papers
+https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6379348/
+[https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6379348/](https://pubmed.ncbi.nlm.nih.gov/35285408/)
+https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7855717/
+
 We hope you enjoy working on the Mood Light Hackathon project! If you have any questions or run into issues, feel free to open an issue on this repository. Happy hacking!

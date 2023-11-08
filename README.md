@@ -60,4 +60,4 @@ This project is licensed under the [MIT License](LICENSE).
 
 [Foliage colors improve relaxation and emotional status of university students from different countries (2021)](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7855717/)
 
-We hope you enjoy working on the Mood Light Hackathon project! If you have any questions or run into issues, feel free to open an issue on this repository. Happy hacking!
+We hope you enjoy working on the Mood Light Hackathon project! If you have any questions or run into issues, feel free to open an issue on this repository.
